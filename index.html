@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Мой первый сайт</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+            color: #1e2a3e;
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 2rem 2rem 3rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(120deg, #1e2a3e, #2c5282);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #4a5568;
+            font-size: 1.2rem;
+        }
+
+        /* Секция с карточками — СЮДА ВЫ БУДЕТЕ ДОБАВЛЯТЬ КОНТЕНТ */
+        .cards-section {
+            margin: 2.5rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            border-left: 5px solid #2b6cb0;
+            padding-left: 1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
+            border: 1px solid #eef2f6;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+            border-color: #cbd5e0;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #2d3748;
+        }
+
+        .card p {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .card-badge {
+            display: inline-block;
+            background: #ebf4ff;
+            color: #2b6cb0;
+            border-radius: 40px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Область для вашего текста — редактируемая */
+        .custom-content {
+            background: #f8fafc;
+            border-radius: 28px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid #e2edf7;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: #718096;
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+        }
+
+        button {
+            background: #2b6cb0;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #2c5282;
+        }
+
+        .demo-message {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ Мой сайт</h1>
+            <p class="subtitle">Создан за 5 минут. Вы всё можете изменить.</p>
+        </header>
+
+        <!-- ⬇⬇⬇ ЭТО МЕСТО ДЛЯ ВАШИХ БЛОКОВ ⬇⬇⬇ -->
+        <div class="custom-content">
+            <h2>Привет! 👋</h2>
+            <p>Здесь будет ваш уникальный текст, ссылки, картинки или что захотите. Просто замените этот абзац и заголовок.</p>
+            <p>Нажмите на кнопку ниже, чтобы увидеть, как работает JavaScript.</p>
+            <button id="helloBtn">Сказать привет</button>
+            <div id="messageArea" class="demo-message"></div>
+        </div>
+
+        <!-- Секция с карточками: пример. Вы можете добавлять/удалять карточки -->
+        <div class="cards-section">
+            <h2 class="section-title">Что вы можете сюда добавить</h2>
+            <div class="cards-grid" id="cardsContainer">
+                <!-- КАРТОЧКА 1 (пример) -->
+                <div class="card">
+                    <h3>📝 Текст</h3>
+                    <p>Любые статьи, заметки, список услуг или описание вашего проекта.</p>
+                    <span class="card-badge">просто</span>
+                </div>
+                <!-- КАРТОЧКА 2 (пример) -->
+                <div class="card">
+                    <h3>🖼️ Изображения</h3>
+                    <p>Добавим фото, логотип или галерею — достаточно тега &lt;img&gt;.</p>
+                    <span class="card-badge">наглядно</span>
+                </div>
+                <!-- КАРТОЧКА 3 (пример) -->
+                <div class="card">
+                    <h3>🔗 Ссылки</h3>
+                    <p>Ссылки на соцсети, YouTube, Telegram — любые внешние страницы.</p>
+                    <span class="card-badge">удобно</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Чтобы изменить содержимое — откройте файл index.html в блокноте и правите текст между тегами &lt;div&gt; ... &lt;/div&gt;.</p>
+            <p>Сайт работает локально. Чтобы показать всем — нужен хостинг (например, GitHub Pages, Netlify или любой бесплатный).</p>
+        </footer>
+    </div>
+
+    <script>
+        // Простой JavaScript для демонстрации. Вы можете менять или удалить.
+        const btn = document.getElementById('helloBtn');
+        const msgDiv = document.getElementById('messageArea');
+        if (btn && msgDiv) {
+            btn.addEventListener('click', () => {
+                msgDiv.innerHTML = 'Привет! Сайт работает, и вы можете добавлять сюда свои кнопки, формы, списки.';
+                msgDiv.style.color = '#2c5282';
+                msgDiv.style.fontWeight = '500';
+            });
+        }
+    </script>
+</body>
+</html>
